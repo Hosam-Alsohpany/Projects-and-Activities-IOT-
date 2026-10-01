@@ -1,0 +1,92 @@
+   byte seg[]={0b0111111,0b000110,0b1011011,0b1001111,0b1100110,0b1101101,0b1111101,0b0000111,0b1111111,0b1101111};
+void setup() {
+for(int i=0;i<7;i++){
+ pinMode(i,OUTPUT);}
+ pinMode(7,OUTPUT);
+ pinMode(8,OUTPUT);
+ pinMode(9,OUTPUT);
+ pinMode(10,OUTPUT);
+ pinMode(11,OUTPUT);
+ pinMode(12,OUTPUT);
+
+}
+int d7,d8,d9,d10,d11,d12;
+void loop() {
+for(int i=0;i<=999999;i++){
+d7=i%10;
+d8=(i/10)%10;
+d9=(i/100)%10;
+d10=(i/1000)%10;
+d11=(i/10000)%10;
+d12=(i/100000)%10;
+  for(int j=0;j<=10;j++){
+  
+  digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(10,0);
+  digitalWrite(11,0);
+  digitalWrite(12,1);
+  port(d7);
+  delay(1);
+  digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(10,0);
+  digitalWrite(11,1);
+  digitalWrite(12,0);
+  port(d8);
+  delay(1);
+  digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(10,1);
+  digitalWrite(11,0);
+  digitalWrite(12,0);
+  port(d9);
+  delay(1);
+
+digitalWrite(7,0);
+  digitalWrite(8,0);
+  digitalWrite(9,1);
+  digitalWrite(10,0);
+  digitalWrite(11,0);
+  digitalWrite(12,0);
+  port(d10);
+  delay(1);
+
+
+digitalWrite(7,0);
+  digitalWrite(8,1);
+  digitalWrite(9,0);
+  digitalWrite(10,0);
+  digitalWrite(11,0);
+  digitalWrite(12,0);
+  port(d11);
+  delay(1);
+  
+digitalWrite(7,1);
+  digitalWrite(8,0);
+  digitalWrite(9,0);
+  digitalWrite(10,0);
+  digitalWrite(11,0);
+  digitalWrite(12,0);
+  port(d12);
+  delay(1);
+}
+
+
+}
+
+}
+
+
+
+void port(byte V)
+{
+  byte i;
+  for(i=0;i<=7;i++)
+  {
+    digitalWrite(i,bitRead(seg[V],i));
+
+  }}
